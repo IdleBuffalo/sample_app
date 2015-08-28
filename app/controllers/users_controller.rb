@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)   #ta @user se bo uporablkal v new.html.erb
     if @user.save
+      log_in @user
       flash[:success] = "Welcome to the Sample App!" #se bo pojavilo samo enkrat 
       # Handle a Successful save
       redirect_to @user            # originally user_url(@user)
